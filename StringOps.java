@@ -22,21 +22,62 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        String str = "";
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u') ) {
+                c = (char) (c - 32);
+            } else if ((c >= 'A') && (c <= 'Z')) {
+                c = (char) (c + 32);
+            }
+            str = str + c;
+        } 
+        return str;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
-        return "";
+        String str = "";
+       
+        for (int i = 1; i < string.length(); i++ ) {
+          char c = string.charAt(i);
+          if (c != ' ' ) {
+             if ((c >= 'A') && (c <= 'Z') && (string.charAt(i-1) == ' ') && (str != "")) {
+                    str = str + c;
+            } else if ((c >= 'a') && (c <= 'z') && (string.charAt(i-1) == ' ') && (str != "")) {
+                    c = (char) (c -32);
+                    str = str + c;
+            } else if ((c >= 'A') && (c <= 'Z')) {
+                c = (char) (c + 32);
+                str = str + c;
+            } else {
+                str = str + c;
+            }
+          }
+        }
+        return str;
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int x = 0;
+
+        for (int i = 0; i < string.length(); i++) {
+            char c = string.charAt(i);
+            if (chr == c) {
+                x++;
+            }
+        }
+        int array [] = new int [x];
+        for (int y = 0; y < x; y++) {
+        for (int j = 0; j < string.length(); j++) {
+            char ch = string.charAt(j);
+            if (chr == ch) {
+                array [y] = j;
+            }
+        }
+        }
+        return array;
     }
 }
