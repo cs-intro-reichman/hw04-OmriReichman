@@ -90,8 +90,10 @@ public class StringOps {
             char ch = string.charAt(j);
             if (chr == ch) {
                 array [y] = j;
+                j = string.length();
             }
         }
+        
         }
         return array;
     }
