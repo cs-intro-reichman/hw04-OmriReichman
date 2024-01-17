@@ -88,6 +88,9 @@ public class StringOps {
         for (int y = 0; y < x; y++) {
         for (int j = 0; j < string.length(); j++) {
             char ch = string.charAt(j);
+            if (y > 0) {
+                j = (array[y-1] + 1);
+            }
             if (chr == ch) {
                 array [y] = j;
                 j = string.length();
