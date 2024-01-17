@@ -93,7 +93,7 @@ public class StringOps {
             }
             if (chr == ch) {
                 array [y] = j;
-                j = string.length();
+                j = string.length(); 
             }
         }
         
