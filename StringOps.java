@@ -28,24 +28,39 @@ public class StringOps {
         String str = "";
         for (int i = 0; i < string.length(); i++) {
             char c = string.charAt(i);
-            if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u') ) {
+            if ((c == 'a') || (c == 'e') || (c == 'i') || (c == 'o') || (c == 'u')) {
                 c = (char) (c - 32);
-            } else if ((c >= 'A') && (c <= 'Z')) {
+                str = str + c;
+            } else if ((c == 'A') || (c == 'E') || (c == 'I') || (c == 'O') || (c == 'U')) {
+                str = str + c;
+            } else if ((c >= 'A') && (c <= 'Z'))  {
                 c = (char) (c + 32);
+                str = str + c;
+            } else {
+                str = str + c;
             }
-            str = str + c;
+            
         } 
         return str;
     }
 
     public static String camelCase (String string) {
         String str = "";
+        if (string.charAt(0) != ' ') {
+            char chr = string.charAt(0);
+            if ((chr >= 'A') && (chr <= 'Z')) {
+                chr = (char) (chr +32);
+                str = str + chr;
+            } else {
+                str = str + chr;
+            }
+        }
        
         for (int i = 1; i < string.length(); i++ ) {
           char c = string.charAt(i);
           if (c != ' ' ) {
              if ((c >= 'A') && (c <= 'Z') && (string.charAt(i-1) == ' ') && (str != "")) {
-                    str = str + c;
+                str = str + c;
             } else if ((c >= 'a') && (c <= 'z') && (string.charAt(i-1) == ' ') && (str != "")) {
                     c = (char) (c -32);
                     str = str + c;
