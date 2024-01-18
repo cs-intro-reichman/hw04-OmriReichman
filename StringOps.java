@@ -85,18 +85,16 @@ public class StringOps {
             }
         }
         int array [] = new int [x];
-        for (int y = 0; y < x; y++) {
-        for (int j = 0; j < string.length(); j++) {
-            char ch = string.charAt(j);
-            if (y > 0) {
-                j = (array[y-1] + 1);
+        int y = 0;
+
+        for (int i = 0; i < string.length(); i++) {
+            for (int j = y; j < string.length(); j++) {
+                if (string.charAt(i) == chr) {
+                    array[j] = i;
+                    y++;
+                    j = string.length();
+                }
             }
-            if (chr == ch) {
-                array [y] = j;
-                j = string.length(); 
-            }
-        }
-        
         }
         return array;
     }
